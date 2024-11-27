@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Neon Night Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- Link to custom styles -->
+    <style>
+        /* Custom Styles */
+        .hero-section {
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .team-section .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-section .team-member img {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-section .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .team-section .team-member h5 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .team-section .team-member p {
+            color: #777;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Neon Night Events</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fade-in">Welcome to Neon Night Events</h1>
+            <p class="lead fade-in">Your one-stop platform to discover, manage, and attend events that make memories.</p>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-section py-5 fade-in">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Neon Night Events, we believe in making events easier to organize and attend. Whether you're looking for a conference, concert, or any special gathering, we are here to make it a night to remember!</p>
+
+            <div class="row mt-4">
+                <div class="col-lg-6 fade-in">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to empower event organizers with an easy-to-use platform that allows them to create, manage, and promote their events effortlessly. We also aim to enhance the attendee experience by providing a seamless way to browse, register, and attend their favorite events.</p>
+                </div>
+                <br>
+                <div class="col-lg-6 fade-in">
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li><i class="fa fa-check-circle"></i> Easy Event Management</li>
+                        <li><i class="fa fa-check-circle"></i> Wide Variety of Events</li>
+                        <li><i class="fa fa-check-circle"></i> Seamless User Experience</li>
+                        <li><i class="fa fa-check-circle"></i> Secure Payment and Registration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 fade-in">Meet Our Team</h2>
+            <div class="row text-center">
+                <div class="col-md-4 fade-in">
+                    <div class="team-member">
+                        <img src="team1.jpg" class="img-fluid" alt="Team Member 1" style="width: 150px; height: 150px;">
+                        <h5>Md Nazim Khan</h5>
+                        <p>Founder & CEO</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="team-member">
+                        <img src="team2.jpg" class="img-fluid" alt="Team Member 2" style="width: 150px; height: 150px;">
+                        <h5>Aditya Raj</h5>
+                        <p>Event Manager</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="team-member">
+                        <img src="team3.jpg" class="img-fluid" alt="Team Member 3" style="width: 150px; height: 150px;">
+                        <h5>Akanksha Choudhary</h5>
+                        <p>Marketing Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Neon Night Events. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="mx-3"><i class="fa fa-facebook"></i> Facebook</a>
+                <a href="#" class="mx-3"><i class="fa fa-twitter"></i> Twitter</a>
+                <a href="#" class="mx-3"><i class="fa fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Scroll Animation -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                if (element.getBoundingClientRect().top < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

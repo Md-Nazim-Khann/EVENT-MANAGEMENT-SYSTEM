@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .event-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .event-header h1 {
+      color: #343a40;
+      font-weight: bold;
+    }
+    .event-header p {
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">Neon Night Events</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="events.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary text-white" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="event-header py-5">
+    <div class="container">
+      <h1>Discover Upcoming Events</h1>
+      <p>Explore a wide variety of events and find something that interests you.</p>
+    </div>
+  </div>
+
+  <!-- Events Section -->
+  <div class="container my-5">
+    <h2 class="mb-4 text-center">Upcoming Events</h2>
+    <div class="row">
+      <!-- Event Card 1 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://i.pinimg.com/236x/02/8b/20/028b208f2e39582abb6fdac7b4996b10.jpg" class="card-img-top" alt="Event 1">
+          <div class="card-body">
+            <h5 class="card-title">Tech Conference 2024</h5>
+            <p class="card-text">
+              <strong>Date:</strong> January 15, 2024<br>
+              <strong>Time:</strong> 10:00 AM - 5:00 PM<br>
+              <strong>Venue:</strong> Tech Park Auditorium
+            </p>
+            <a href="#" class="btn btn-primary w-100">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://i.pinimg.com/474x/c2/05/8d/c2058d72319ae5d64f6e9fd144242259.jpg" class="card-img-top" alt="Event 1">
+          <div class="card-body">
+            <h5 class="card-title">Music Fest 2024</h5>
+            <p class="card-text">
+              <strong>Date:</strong> February 10, 2024<br>
+              <strong>Time:</strong> 6:00 PM - 11:00 PM<br>
+              <strong>Venue:</strong> City Arena
+            </p>
+            <a href="#" class="btn btn-primary w-100">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://i.pinimg.com/control2/236x/fc/eb/aa/fcebaaefd55383e336b719c75e466e5d.jpg" class="card-img-top" alt="Event 3">
+          <div class="card-body">
+            <h5 class="card-title">Art Workshop</h5>
+            <p class="card-text">
+              <strong>Date:</strong> March 5, 2024<br>
+              <strong>Time:</strong> 1:00 PM - 4:00 PM<br>
+              <strong>Venue:</strong> Art Studio Downtown
+            </p>
+            <a href="#" class="btn btn-primary w-100">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Neon Night Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #333;
+        }
+
+        .navbar-brand {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ddd;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff;
+        }
+
+        .dashboard-section {
+            padding: 50px 0;
+        }
+
+        .dashboard-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card h3 {
+            color: #007bff;
+        }
+
+        .dashboard-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .dashboard-card li {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card li i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .dashboard-card button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dashboard-card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Neon Night Events</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                <li class="nav-item active"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="container">
+            <h2 class="text-center">Welcome to Your Dashboard</h2>
+            <div class="row">
+                <!-- User Information Card -->
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <h3>User Information</h3>
+                        <ul>
+                            <li><i class="fas fa-user"></i> Name: <span id="user-name">John Doe</span></li>
+                            <li><i class="fas fa-envelope"></i> Email: <span id="user-email">johndoe@example.com</span></li>
+                        </ul>
+                        <button id="edit-profile" class="btn btn-primary btn-block">Edit Profile</button>
+                    </div>
+                </div>
+
+                <!-- Event Registrations Card -->
+                <div class="col-md-8">
+                    <div class="dashboard-card">
+                        <h3>Your Event Registrations</h3>
+                        <ul id="event-list">
+                            <!-- Event list will be populated dynamically here -->
+                            <li>No events registered yet.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-dark text-white">
+        <p>&copy; 2024 Neon Night Events. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simulating a check for logged-in user using localStorage
+        if (!localStorage.getItem('userLoggedIn')) {
+            // Redirect to login if user is not logged in
+            window.location.href = 'login.html';
+        }
+
+        // Example of dynamically populating user data and event list
+        document.getElementById('user-name').textContent = localStorage.getItem('userName') || 'John Doe';
+        document.getElementById('user-email').textContent = localStorage.getItem('userEmail') || 'johndoe@example.com';
+
+        // Example of adding event registrations dynamically
+        const eventList = document.getElementById('event-list');
+        const events = JSON.parse(localStorage.getItem('userEvents')) || [];
+        if (events.length > 0) {
+            eventList.innerHTML = events.map(event => `<li>${event}</li>`).join('');
+        }
+
+        // Edit profile button functionality (just an example)
+        document.getElementById('edit-profile').addEventListener('click', function () {
+            alert('Redirecting to profile edit page...');
+            // Redirect to profile edit page or display a modal here
+        });
+
+        //check if the user is logged in by checking for hte token
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            //redirect to log in if the user is not logged in 
+            window.location.href = 'login.html';
+        }
+
+        //fetch user data using the token
+        fetch('http://localhost:5000/dashboard', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then (Response => Response.json())
+        .then(data => {
+            if (data.email) {
+                document.getElementById('user-email').textContent = data.email;
+                //populate other dashboard data if needed
+            } else {
+                window.location.href = 'login.html';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching dashboard data:', error);
+            window.location.href = 'login.html';  //redirect if facing any issue with the token
+        });
+    </script>
+</body>
+
+</html>
